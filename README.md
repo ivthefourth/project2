@@ -1,10 +1,7 @@
 # project-game
 
-**Archived as group project** [current version found here](https://github.com/ivthefourth/project2)
-
 [![Stories in Ready](https://badge.waffle.io/ivthefourth/project-game.svg?label=ready&title=Ready)](https://waffle.io/ivthefourth/project2)
 
-[Live Link](https://ivthefourth.github.io/project2/)
 
 
 ## Contents
@@ -26,7 +23,7 @@
 ## Important Links
 
 ### Project Info
-* [Milestones](https://github.com/ivthefourth/project-game/milestones)
+* [Milestones](https://github.com/ivthefourth/project2/milestones)
 * [Waffle (Task Manager)](https://waffle.io/ivthefourth/project2)
 * [User Stories]()
 * [Project Proposal]()
