@@ -1,0 +1,1 @@
+module.exports = 'COME ON BARBIE LETS GO PARTY'; 
