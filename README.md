@@ -31,9 +31,9 @@
 ### Library Docs
 * [Materialize Docs](http://materializecss.com/)
 * [jQuery Docs](https://api.jquery.com/)
-* [webpack](https://webpack.js.org/)
+* [Phaser](http://phaser.io/)
+* [Sequelize](http://docs.sequelizejs.com/)
 
-### API Docs
 
 
 
@@ -66,6 +66,7 @@ When Completing a new task:
 [Read more about Waffle workflow.](https://help.waffle.io/automatic-work-tracking/auto-work-tracking-basics/recommended-workflow-using-pull-requests-automatic-work-tracking)
 
 ## Dev Server
-* **Start the server** by opening a new terminal window and entering `npm start`. 
-* Server will be on http://localhost:8080/ with auto-refresh enabled.
+* **Start the server** by opening a new terminal window and entering `npm run devserver`. 
+* Server will be on http://localhost:3000/ .
 * **Stop the server** by pressing `ctrl` + `C` on the terminal window that is running the server.
+* **Note:** If you add new folders, you will need to stop and restart the dev server.
