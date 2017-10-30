@@ -35,7 +35,7 @@ gulp.task('bundle', ['clean'], function() {
 });
 
 
-gulp.task('default', ['server'], function() {
+gulp.task('default', ['bundle', 'server'], function() {
    gulp.watch([
       '**/*.js', 
       '!/public/**/*', 
