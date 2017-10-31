@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sequelize": "sequelize",
     "gulp": "gulp",
-    "devserver": "gulp"
+    "devserver": "gulp",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

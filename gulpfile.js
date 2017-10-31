@@ -32,15 +32,19 @@ gulp.task('bundle', ['clean'], function() {
       debug: true
    }))
    .pipe(gulp.dest('public/game-files/'));
+
+   gulp
+   .src(['game-files/**/*.png'])
+   .pipe(gulp.dest('public/game-files/'));
 });
 
 
 gulp.task('default', ['bundle', 'server'], function() {
    gulp.watch([
-      '**/*.js', 
-      '!/public/**/*', 
-      '!node_modules/**/*', 
-      '!gulpfile.js'
+      'server.js',
+      'routes/**/*.js',
+      'models/**/*.js',
+      'game-files/**/*.js'
    ], [
       'bundle',
       'server'
