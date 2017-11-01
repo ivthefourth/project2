@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const handlebars = require("express-handlebars");
+const handlebars = require('express-handlebars');
+const db = require('./models');
 
 const routes = require('./routes/routes');
 
@@ -17,6 +18,13 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(routes);
 
-app.listen(PORT, () => {
-   console.log('serving yo');
+
+// db.sequelize.sync({force: true}) 
+db.sequelize.sync()
+	.then(function() {
+		app.listen(PORT, () => {
+   		console.log('serving yo');
+		// app.listen(PORT, function() {
+	 //  	console.log("App listening on PORT " + PORT);
+	});
 });
