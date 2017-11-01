@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+   <!-- Modal Trigger Button-->
+  <h1>Modal Test Page</h1>
+    <p>A modal sandbox page to test modal for user creation</p>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Create Account</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Create Account</h4>
+        <div> 
+          <label for="player-id">Player ID</label>
+          <input id="player-id" type="text" class="validate">
+
+          <label for="player-email">Email</label>
+          <input id="player-email" type="email" class="validate">
+        </div>
+      </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
+    });
+  </script>
+          
+</body>
+</html>
