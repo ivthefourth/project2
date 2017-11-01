@@ -3,7 +3,7 @@ const models = require('../models');
 const router = express.Router();
 
 router.get('/levels/:id', function(req, res) {
-   console.log('hey');
+   res.render('level', {levelId: req.params.id});
 })
 
 module.exports = router;
