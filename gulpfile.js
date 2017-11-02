@@ -26,7 +26,7 @@ gulp.task('clean', function() {
 
 gulp.task('bundle', ['clean'], function() {
    gulp
-   .src(['game-files/levels/level-*/level.js'])
+   .src(['game-files/**/level.js'])
    .pipe(browserify({
       insertGlobals: true,
       debug: true
@@ -34,7 +34,7 @@ gulp.task('bundle', ['clean'], function() {
    .pipe(gulp.dest('public/game-files/'));
 
    gulp
-   .src(['game-files/**/*.png'])
+   .src(['game-files/**/*.png', 'game-files/**/*.json'])
    .pipe(gulp.dest('public/game-files/'));
 });
 
