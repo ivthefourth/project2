@@ -22,11 +22,11 @@
     <div class="modal-content">
       <h4>Create Account</h4>
         <div> 
-          <label for="player-id">Player ID</label>
-          <input id="player-id" type="text" class="validate">
+          <label for="username">Username</label>
+          <input id="username" type="text" class="validate">
 
-          <label for="player-email">Email</label>
-          <input id="player-email" type="email" class="validate">
+          <label for="passwd">password</label>
+          <input id="passwd" type="password" class="validate">
         </div>
       </div>
     <div class="modal-footer">
@@ -39,10 +39,39 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   <script>
+    //var express = require("express");
+    //require('../routes/routes.js')
+
     $(document).ready(function(){
+
+      
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
       $('.modal').modal();
-    });
+      $('.btn-flat').on('click', function(){
+        event.preventDefault();
+        var newAccount = {
+          username: $('#username').val().trim(),
+          password: $('#passwd').val().trim()
+        };  
+        console.log('Input Data: ' + newAccount);
+
+        $.post("/account", newAccount, function(result){
+          console.log("post result: " + result);
+        })
+      });
+
+
+/*          var txt = $("input").val();
+    $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
+        $("span").html(result);
+    });*/
+/*
+
+      $.ajax('/account', {
+        type: 'POST',
+        data: newAccount
+      });*/
+});
   </script>
           
 </body>
