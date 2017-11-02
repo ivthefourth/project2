@@ -1,0 +1,14 @@
+#login {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    border: dashed black;
+}
+
+nav {
+    background: magenta;
+}
+
+body {
+    background: black;
+}
