@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
       port: 3306,
       host: "localhost",
       user: "root",
-      password: null,
+      password: '0jsw693Ml',
       database: "game_db"
     });
   };

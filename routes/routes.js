@@ -7,7 +7,7 @@ router.get('/levels/:id', function(req, res) {
 });
 
 
-router.get('/login', function(req, res) {
+router.post('/login', function(req, res) {
 	models.Users.findOne({
 		where: 
 			{username: req.body.username
