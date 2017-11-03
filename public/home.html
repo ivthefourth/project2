@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>BGE</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- jQuery -->
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   <!-- materialize -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+   <!-- javascript -->
+   <script src="notScript.js"></script>
+
+   <!-- CSS -->
+   <link rel="stylesheet" href="notStyle.css">
+
+</head>
+<body>
+    <nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Lola and Snitch</a>
+        <ul id="nav-mobile" class="right">
+        <li><a class="waves-effect waves-light modal-trigger" href="#tutorial-modal"><i class="material-icons">help_outline</i></a></li>
+        </ul>
+    </div>
+</nav>
+
+  <a class="waves-effect waves-light btn modal-trigger" href="#createAccountModal">Create Account</a>
+  
+    <!-- Modal Structure -->
+    <div id="createAccountModal" class="modal">
+      <div class="modal-content">
+        <h4>Create Account</h4>
+          <div> 
+            <label for="player-id">Player ID</label>
+            <input id="player-id" type="text" class="validate">
+  
+            <label for="player-email">Email</label>
+            <input id="player-email" type="email" class="validate">
+          </div>
+        </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+
+    <div id="login"> 
+      <h4>Log In</h4>
+      <label for="player-id">Player ID</label>
+      <input id="player-id" type="text" class="validate">
+
+      <label for="player-password">Password</label>
+      <input id="player-password" type="password" class="validate">
+    </div>
+  </div>
+
+</body>
+</html>
