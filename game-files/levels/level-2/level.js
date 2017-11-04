@@ -14,7 +14,7 @@ game = new Phaser.Game(1280, 720, Phaser.AUTO, '', {
    create: create, 
    update: update
 });
-
+// changed files
 function preload() {
    game.stage.backgroundColor = '#85b5e1';
 
