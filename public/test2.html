@@ -7,14 +7,34 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="createUser.js"></script>
+
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
-   <!-- Modal Trigger Button-->
   <h1>Modal Test Page</h1>
-    <p>A modal sandbox page to test modal for user creation</p>
+  <p>A modal sandbox page to test modal for user creation</p>
+
+  <div>
+    <!-- Login inputs -->
+    <div>
+      <h4>Account Log In</h4>
+      <label for="usernameLogin">Username</label>
+      <input type="text" id="usernameLogin" class='validate'>
+
+      <label for="passwordLogin">Password</label>
+      <input type="text" id="passwordLogin" class='validate'>
+    
+      <a class="waves-effect waves-light btn" id="login">Log In</a>
+    </div>
+  </div>
+
+   <!-- Modal Trigger Button-->
     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Create Account</a>
 
   <!-- Modal Structure -->
@@ -22,57 +42,42 @@
     <div class="modal-content">
       <h4>Create Account</h4>
         <div> 
-          <label for="username">Username</label>
-          <input id="username" type="text" class="validate">
+          <label for="usernameCreate">Username</label>
+          <input id="usernameCreate" type="text" class="validate">
 
-          <label for="passwd">password</label>
-          <input id="passwd" type="password" class="validate">
+          <label for="passwordCreate">password</label>
+          <input id="passwordCreate" type="password" class="validate">
         </div>
       </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
     </div>
   </div>
   <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-  <script>
-    //var express = require("express");
-    //require('../routes/routes.js')
+<!--   <script>
+  //var express = require("express");
+  //require('../routes/routes.js')
 
-    $(document).ready(function(){
+  $(document).ready(function(){
 
-      
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-      $('.modal').modal();
-      $('.btn-flat').on('click', function(){
-        event.preventDefault();
-        var newAccount = {
-          username: $('#username').val().trim(),
-          password: $('#passwd').val().trim()
-        };  
-        console.log('Input Data: ' + newAccount);
+    
+  // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+    $('.btn-flat').on('click', function(){
+      event.preventDefault();
+      var newAccount = {
+        username: $('#username').val().trim(),
+        password: $('#passwd').val().trim()
+      };  
+      console.log('Input Data: ' + newAccount);
 
-        $.post("/account", newAccount, function(result){
-          console.log("post result: " + result);
-        })
-      });
-
-
-/*          var txt = $("input").val();
-    $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
-        $("span").html(result);
-    });*/
-/*
-
-      $.ajax('/account', {
-        type: 'POST',
-        data: newAccount
-      });*/
+      $.post("/account", newAccount, function(result){
+        console.log("post result: " + result);
+      })
+    });
 });
-  </script>
+</script> -->
           
 </body>
 </html>
