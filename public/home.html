@@ -18,6 +18,8 @@
    <!-- javascript -->
    <script src="notScript.js"></script>
 
+    <script  type="text/javascript" src="./createUser.js"></script>
+
    <!-- CSS -->
    <link rel="stylesheet" href="notStyle.css">
 
@@ -33,25 +35,42 @@
 </nav>
 
   <a class="waves-effect waves-light btn modal-trigger" href="#createAccountModal">Create Account</a>
-  
+
     <!-- Modal Structure -->
-    <div id="createAccountModal" class="modal">
+    <div id="modal1" class="modal">
       <div class="modal-content">
         <h4>Create Account</h4>
           <div> 
-            <label for="player-id">Player ID</label>
-            <input id="player-id" type="text" class="validate">
-  
-            <label for="player-email">Email</label>
-            <input id="player-email" type="email" class="validate">
+            <label for="username">Username</label>
+            <input id="username" type="text" class="validate">
+
+            <label for="passwd">password</label>
+            <input id="passwd" type="password" class="validate">
           </div>
         </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
       </div>
     </div>
 
-    <div id="login"> 
+<!-- Replaced with updated code above -->
+<!--     <div id="createAccountModal" class="modal">
+  <div class="modal-content">
+    <h4>Create Account</h4>
+      <div> 
+        <label for="player-id">Player ID</label>
+        <input id="player-id" type="text" class="validate">
+  
+        <label for="player-email">Email</label>
+        <input id="player-email" type="email" class="validate">
+      </div>
+    </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+  </div>
+</div> -->
+
+  dic  <div id="login"> 
       <h4>Log In</h4>
       <label for="player-id">Player ID</label>
       <input id="player-id" type="text" class="validate">
