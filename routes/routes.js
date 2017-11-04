@@ -6,7 +6,6 @@ router.get('/levels/:id', function(req, res) {
    res.render('level', {levelId: req.params.id});
 });
 
-
 router.post('/login', function(req, res) {
 	models.Users.findOne({
 		where: 
