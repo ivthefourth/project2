@@ -15,9 +15,9 @@ function preload() {
 
    game.load.image('player', 'game-files/images/snitch-avatar.png');
 
-   game.load.tilemap('test', 'game-files/levels/level-2krazykats/first-try.json', null, Phaser.Tilemap.TILED_JSON);
+   game.load.tilemap('test', 'game-files/levels/level-2krazykats/eliz.json', null, Phaser.Tilemap.TILED_JSON);
    game.load.image('tiles', 'game-files/images/scifi.png');
-   game.load.image('misc-tiles', 'game-files/images/sheet1.png');
+   game.load.image('tiles1', 'game-files/images/sheet1.png');
 }
 
 var map;
@@ -31,7 +31,8 @@ function create() {
     //  The first parameter is the tileset name, as specified in the Tiled map editor (and in the tilemap json file)
     //  The second parameter maps this name to the Phaser.Cache key 'tiles'
     map.addTilesetImage('scifi', 'tiles');
-    
+    map.addTilesetImage('sheet1', 'tiles1');
+
     //  Creates a layer from the World1 layer in the map data.
     //  A Layer is effectively like a Phaser.Sprite, so is added to the display list.
     layer = map.createLayer('Tile Layer 1');
