@@ -4,12 +4,10 @@ module.exports = function(sequelize, DataTypes) {
     	type: DataTypes.STRING,
     	allowNull: false,
     	unique: true,
-    	validate: {min: 1, max: 255}
 	},
     password: {
     	type: DataTypes.STRING,
     	allowNull: false,
-    	validate: {min: 1, max: 255}
     }
   });
   return Users;
