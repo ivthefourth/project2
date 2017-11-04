@@ -1,5 +1,12 @@
+var dead = false;
 function succumbToDeath(){
+  if(!dead){
+    alert('DIE');
+    dead = true;
+  }
+  else{
    console.log('DIE');
+  }
 }
 
 game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { 
