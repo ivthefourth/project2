@@ -24,9 +24,9 @@ $(document).ready(function(){
       password: $('#passwordLogin').val().trim()
     };
     alert('login not quite succesful yet '+ loginAccount.username + loginAccount.password)
-
+//
     //the logic for password login goes here...
-    
+
     //search for the user in the database
     //return the username and passowrd
     //compare the input password to stored password
