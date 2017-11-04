@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "r00t",
+    "password": null,
     "database": "game_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
