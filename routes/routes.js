@@ -19,7 +19,6 @@ router.post('/login', function(req, res) {
 			}
 	})
 	.then(function(dbUser){
-		console.log(dbUser);
 		bcrypt.compare(req.body.password, dbUser.password, function(err, match) {
 			if(match) {
 				const payload = {
@@ -32,7 +31,7 @@ router.post('/login', function(req, res) {
 				});
 			} 
 			else {
-		   	res.status(403).json({
+		   	res.json({
 		   		error: 'invalid password'
 		   	})
 			} 
@@ -41,25 +40,24 @@ router.post('/login', function(req, res) {
 });
 
 router.post('/account', function(req, res) {
-
-	models.Users.create({
-		username: req.body.username,
-		password: req.body.password
-	}).then(function(dbUser) {
-		console.log(`User info added: ${dbUser}`);
-	});
-// });
-
-
-	//need to make sure user is unique 
-	console.log(req.body);
 	bcrypt.hash(req.body.password, 10, function(err, hash) {
-		if(err) throw err;
+		if(err) res.sendStatus(500);
 		models.Users.create({
 			username: req.body.username,
 			password: hash
-		}).then(function(dbUser) {
+		})
+		.then(function(dbUser) {
 			res.sendStatus(200);
+		})
+		.catch(function(err){
+			if(err.name == 'SequelizeUniqueConstraintError'){
+				res.json({
+					error: 'username taken',
+				});
+			}
+			else{
+				res.sendStatus(500);
+			}
 		});
 	});
 });
@@ -90,11 +88,32 @@ router.get('/', function(req, res){
 });
 
 
-
 //level routes
 router.get('/levels/:id', function(req, res) {
-   res.render('level', {levelId: req.params.id});
+	if(req.auth){
+		//check if user has unlocked level before sending res
+   	res.render('level', {levelId: req.params.id});
+	}
+	else{
+		res.redirect('/');
+	}
 });
+
+
+//game API routes
+router.post('/add-death', function(req, res) {
+	console.log(req.auth);
+	if(req.auth){
+		models.Users.increment('deathCount', { 
+			where: { username: req.auth.user}
+		})
+		.then(success => res.json({success}))
+		.catch(err => res.sendStatus(500));
+	}
+	else{
+		res.json({error: 'not authenticated'});
+	}
+})
 
 
 // delete user account
@@ -107,6 +126,7 @@ router.delete('/delete/:username', function(req, res) {
 		console.log(`${dbUser.username} deleted from database`);
 	})
 });
+
 module.exports = router;
 
 
