@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const secret = 'this game is not a parody';
 
 
+// Define relationships in sequelize
 
 
 //Authentication
@@ -39,9 +40,8 @@ router.post('/login', function(req, res) {
 });
 
 router.post('/account', function(req, res) {
-	//need to make sure user is unique 
 	bcrypt.hash(req.body.password, 10, function(err, hash) {
-		if(err) throw err;
+		if(err) res.sendStatus(500);
 		models.Users.create({
 			username: req.body.username,
 			password: hash
@@ -79,7 +79,7 @@ router.use(function(req, res, next) {
 		req.auth = null;
 	}   
 	next();
-})
+});
 
 
 //main routes
@@ -115,6 +115,17 @@ router.post('/add-death', function(req, res) {
 	}
 })
 
+
+// delete user account
+router.delete('/delete/:username', function(req, res) {
+	models.Users.destroy({
+		where: {
+			username: req.params.username
+		}
+	}).then(function(dbUser) {
+		console.log(`${dbUser.username} deleted from database`);
+	})
+});
 
 module.exports = router;
 
