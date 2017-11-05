@@ -1,3 +1,6 @@
+
+const Users = require("./users.js");
+
 module.exports = function(sequelize, DataTypes) {
   var Levels = sequelize.define("Levels", {
     username: {
@@ -10,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     	unique: true,
     	validate: {min: 1, max: 255}
 	},
-    levels: {
+    level: {
     	type: DataTypes.STRING,
     	allowNull: false,
     	validate: {min: 1, max: 255}
