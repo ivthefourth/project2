@@ -6,9 +6,9 @@ module.exports = function(sequelize, DataTypes) {
     username: {
     	type: DataTypes.STRING,
       references: {
-       model: Users,
-       key: 'username'
-       },
+        model: 'Users',
+        key: 'username'
+      },
     	allowNull: false,
     	validate: {len: [1, 255]}
 	},
@@ -19,3 +19,4 @@ module.exports = function(sequelize, DataTypes) {
   });
   return Levels;
 };
+
