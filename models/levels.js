@@ -10,13 +10,11 @@ module.exports = function(sequelize, DataTypes) {
        key: 'username'
        },
     	allowNull: false,
-    	unique: true,
-    	validate: {min: 1, max: 255}
+    	validate: {len: [1, 255]}
 	},
     level: {
-    	type: DataTypes.STRING,
-    	allowNull: false,
-    	validate: {min: 1, max: 255}
+    	type: DataTypes.BOOLEAN,
+    	allowNull: false
     }
   });
   return Levels;
