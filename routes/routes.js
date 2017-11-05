@@ -3,16 +3,11 @@ const models = require('../models');
 const router = express.Router();
 const path = require('path');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const secret = 'this game is not a parody';
 
-//main routes
-router.get('/', function(req, res){
-   res.sendFile('home.html', {root: path.join(__dirname, '../public/')});
-});
 
-//level routes
-router.get('/levels/:id', function(req, res) {
-   res.render('level', {levelId: req.params.id});
-});
+
 
 //Authentication
 router.post('/login', function(req, res) {
@@ -25,16 +20,21 @@ router.post('/login', function(req, res) {
 	.then(function(dbUser){
 		console.log(dbUser);
 		bcrypt.compare(req.body.password, dbUser.password, function(err, match) {
-		  if(match) {
-		   	// Passwords match
-				res.json(dbUser);
-		  } 
-		  else {
-		   	// Passwords don't match
+			if(match) {
+				const payload = {
+					user: dbUser.username 
+				};
+				var token = jwt.sign(payload, secret);
+
+				res.json({
+					token: token
+				});
+			} 
+			else {
 		   	res.status(403).json({
 		   		error: 'invalid password'
 		   	})
-		  } 
+			} 
 		});
 	});
 });
@@ -52,6 +52,40 @@ router.post('/account', function(req, res) {
 		});
 	});
 });
+
+//authentication middleware 
+router.use(function(req, res, next) {
+	var token = req.body.token || req.query.token;
+	if (token) {
+		jwt.verify(token, secret, function(err, decoded) {      
+			if (err) {
+				req.auth = null;  
+			} 
+			else {
+				req.auth = decoded; 
+			}
+		});
+	} 
+	else {
+		req.auth = null;
+	}   
+	next();
+})
+
+
+//main routes
+router.get('/', function(req, res){
+   res.sendFile('home.html', {root: path.join(__dirname, '../public/')});
+});
+
+
+
+
+//level routes
+router.get('/levels/:id', function(req, res) {
+   res.render('level', {levelId: req.params.id});
+});
+
 
 module.exports = router;
 
