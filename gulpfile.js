@@ -34,7 +34,7 @@ gulp.task('bundle', ['clean'], function() {
    .pipe(gulp.dest('public/game-files/'));
 
    gulp
-   .src(['game-files/**/*.png', 'game-files/**/*.json'])
+   .src(['game-files/**/*.png', 'game-files/**/*.json', 'game-files/**/*.mp3'])
    .pipe(gulp.dest('public/game-files/'));
 });
 
