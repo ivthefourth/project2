@@ -21,8 +21,18 @@ router.post('/account', function(req, res) {
 		username: req.body.username,
 		password: req.body.password
 	}).then(function(dbUser) {
-		console.log(`User info added ${dbUser}`);
+		console.log(`User info added: ${dbUser}`);
 	});
+});
+
+router.delete('/delete/:username', function(req, res) {
+	models.Users.destroy({
+		where: {
+			username: req.params.username
+		}
+	}).then(function(dbUser) {
+		console.log(`${dbUser.username} deleted from database`);
+	})
 });
 
 module.exports = router;
