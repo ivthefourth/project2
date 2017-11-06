@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, DataTypes) {
   var Users = sequelize.define("Users", {
     username: {
@@ -17,5 +18,12 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: 0
     }
   });
+  Users.associate = function(models){
+    Users.hasMany(models.Levels, {
+      onDelete: 'cascade'
+    })
+  }
   return Users;
 };
+
+
