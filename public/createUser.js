@@ -25,6 +25,47 @@ function addDeath(){
   })
 }
 
+function deleteAccount(){
+  $.ajax('/delete', {
+    type: 'DELETE',
+    data: {
+      token: localStorage.getItem('jwtoken')
+    }
+  })
+  .done(function(res){
+    if(!res.error){
+      logOut();
+    }
+    else{
+      //handle error
+    }
+  });
+}
+
+function createAccount(data, callback){
+  $.ajax('/account', {
+    type: 'POST',
+    data: data
+  })
+  .done(callback);
+}
+
+function unlockLevel(levelName, callback){
+  $.ajax('/unlock-level', {
+    type: 'POST',
+    data: {
+      levelName: levelName, 
+      token: localStorage.getItem('jwtoken')
+    }
+  })
+  .done(callback);
+}
+
+function getAvailableLevels(callback){
+  $.get(`/available-levels?token=${localStorage.getItem('jwtoken')}`)
+  .done(callback);
+}
+
 $(document).ready(function(){
 
   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered

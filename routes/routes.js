@@ -19,10 +19,15 @@ router.post('/login', function(req, res) {
 			}
 	})
 	.then(function(dbUser){
+		if(!dbUser){
+			return res.json({
+				error: 'no such user'
+			});
+		}
 		bcrypt.compare(req.body.password, dbUser.password, function(err, match) {
 			if(match) {
 				const payload = {
-					user: dbUser.username 
+					user: dbUser.id
 				};
 				var token = jwt.sign(payload, secret);
 
@@ -41,7 +46,7 @@ router.post('/login', function(req, res) {
 
 router.post('/account', function(req, res) {
 	bcrypt.hash(req.body.password, 10, function(err, hash) {
-		if(err) res.sendStatus(500);
+		if(err) return res.sendStatus(500);
 		models.Users.create({
 			username: req.body.username,
 			password: hash
@@ -99,13 +104,49 @@ router.get('/levels/:id', function(req, res) {
 	}
 });
 
+router.post('/unlock-level', function(req, res){
+	console.log(req.auth);
+	if(req.auth){
+		models.Levels.findOrCreate({
+			where: {
+				UserId: req.auth.user,
+				name: req.body.levelName
+			},
+			defaults: {
+				unlocked: true
+			}
+		})
+		.then(success => res.json(success))
+		.catch(err => res.sendStatus(500));
+	}
+	else{
+		res.json({error: 'not authenticated'});
+	}
+})
+
+router.get('/available-levels', function(req, res){
+	if(req.auth){
+		models.Users.findOne({
+			where: {
+				id: req.auth.user
+			},
+			include: [models.Levels]
+
+		})
+		.then(user => res.json(user.Levels))
+		.catch(err => res.sendStatus(500));
+	}
+	else{
+		res.json({error: 'not authenticated'});
+	}
+});
+
 
 //game API routes
 router.post('/add-death', function(req, res) {
-	console.log(req.auth);
 	if(req.auth){
 		models.Users.increment('deathCount', { 
-			where: { username: req.auth.user}
+			where: { id: req.auth.user}
 		})
 		.then(success => res.json({success}))
 		.catch(err => res.sendStatus(500));
@@ -117,13 +158,22 @@ router.post('/add-death', function(req, res) {
 
 
 // delete user account
-router.delete('/delete/:username', function(req, res) {
-	models.Users.destroy({
-		where: {
-			username: req.params.username
-		}
-	}).then(success => res.json(`${dbUser.username} deleted from database`))
-	   .catch(err => res.sendStatus(500));
+router.delete('/delete', function(req, res) {
+	if(req.auth){
+		models.Users.destroy({
+			where: {
+				id: req.auth.user
+			}
+		})
+		.then(function(dbUser) {
+			//console.log(`${dbUser.username} deleted from database`);
+			res.sendStatus(200);
+		})
+		.catch(err => res.sendStatus(500));
+	}
+	else{
+		res.json({error: 'not authenticated'});
+	}
 });
 
 module.exports = router;
