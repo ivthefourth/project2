@@ -122,9 +122,8 @@ router.delete('/delete/:username', function(req, res) {
 		where: {
 			username: req.params.username
 		}
-	}).then(function(dbUser) {
-		console.log(`${dbUser.username} deleted from database`);
-	})
+	}).then(success => res.json(`${dbUser.username} deleted from database`))
+	   .catch(err => res.sendStatus(500));
 });
 
 module.exports = router;
