@@ -7,8 +7,6 @@ const jwt = require('jsonwebtoken');
 const secret = 'this game is not a parody';
 
 
-// Define relationships in sequelize
-
 
 //Authentication
 router.post('/login', function(req, res) {
@@ -166,7 +164,6 @@ router.delete('/delete', function(req, res) {
 			}
 		})
 		.then(function(dbUser) {
-			//console.log(`${dbUser.username} deleted from database`);
 			res.sendStatus(200);
 		})
 		.catch(err => res.sendStatus(500));
