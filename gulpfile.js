@@ -44,7 +44,8 @@ gulp.task('default', ['bundle', 'server'], function() {
       'server.js',
       'routes/**/*.js',
       'models/**/*.js',
-      'game-files/**/*.js'
+      'game-files/**/*.js',
+      'game-files/**/*.json'
    ], [
       'bundle',
       'server'
