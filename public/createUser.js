@@ -11,6 +11,9 @@ function logIn(data){
   });
 }
 
+
+
+
 function logOut(){
   localStorage.removeItem('jwtoken');
   window.location = '/';
@@ -77,7 +80,7 @@ $(document).ready(function(){
       username: $('#usernameCreate').val().trim(),
       password: $('#passwordCreate').val().trim()
     };  
-    console.log('Input Data: ' + newAccount);
+    //console.log('Input Data: ' + newAccount);
 
     $.post("/account", newAccount, function(result){
       console.log("post result: " + result);
@@ -93,4 +96,5 @@ $(document).ready(function(){
     };
     logIn(loginAccount);
   });//end of click event
+  $('body').click(() => $('#starwars-text').addClass('moving'))
 });//end of document.ready
