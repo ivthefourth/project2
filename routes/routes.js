@@ -143,7 +143,7 @@ router.get('/available-levels', function(req, res){
 
 
 //game API routes
-router.post('/add-death', function(req, res) {
+router.patch('/add-death', function(req, res) {
 	if(req.auth){
 		models.Users.increment('deathCount', { 
 			where: { id: req.auth.user}
