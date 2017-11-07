@@ -29,6 +29,9 @@ module.exports = {
       game.load.image('player', 'game-files/images/snitch-avatar.png');
       game.load.image('playerDead', 'game-files/images/snitch-avatar-dead.png');
    },
+   loadAudio(game){
+      game.load.audio('soundtrack', 'game-files/audio/FallingOrgan.mp3');
+   },
    createInit(game, options = {}){
       const cameraStartingX = propOrDefault(options.cameraStartingX, game.camera.width/2.5),
          cameraStartingY = propOrDefault(options.cameraStartingY, 200),
@@ -79,6 +82,11 @@ module.exports = {
       game.physics.arcade.TILE_BIAS = 40;
 
       return state;
+   },
+   playMusic(game, state){
+      /////Play Music Soundtrack/////
+      state.music = game.add.audio('soundtrack');
+      state.music.play();
    },
    createCollisions(map, trapCollisionCallback){
       map.setCollisionBetween(1, 20);
