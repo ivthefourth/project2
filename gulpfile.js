@@ -34,7 +34,7 @@ gulp.task('bundle', ['clean'], function() {
    .pipe(gulp.dest('public/game-files/'));
 
    gulp
-   .src(['game-files/**/*.png', 'game-files/**/*.json'])
+   .src(['game-files/**/*.png', 'game-files/**/*.json', 'game-files/**/*.mp3'])
    .pipe(gulp.dest('public/game-files/'));
 });
 
@@ -44,7 +44,8 @@ gulp.task('default', ['bundle', 'server'], function() {
       'server.js',
       'routes/**/*.js',
       'models/**/*.js',
-      'game-files/**/*.js'
+      'game-files/**/*.js',
+      'game-files/**/*.json'
    ], [
       'bundle',
       'server'

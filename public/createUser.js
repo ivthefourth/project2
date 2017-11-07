@@ -21,7 +21,7 @@ function logOut(){
 
 function addDeath(){
   $.ajax('/add-death', {
-    method: 'POST',
+    method: 'PATCH',
     data: {
       token: localStorage.getItem('jwtoken')
     }
