@@ -1,16 +1,57 @@
-#login {
-    width: 50%;
-    text-align: center;
-    margin: auto;
-    border: dashed black;
+h1{
+	color: #ffffff;
+	text-align: center;
+}
+
+body{
+  background: #000022;
+  color: gold;
+  perspective: 800px;
+}
+
+#starwars-text{
+  width: 600px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  transform:  translateY(-500px) rotateX(20deg) translateY(900px) ;
+  transition: transform 6s linear;
+  
+}
+
+#starwars-text.moving{
+  transform:  translateY(-100px) rotateX(20deg) translateY(-2000px);
+}
+h5{
+	text-align: center;
+}
+
+login-panel{
+	border-color: #ffffff;
+	border-width: 2px;	
+}
+
+.btn{
+	align-items: center;
+	width:100%;
+	background-color: gold;
+	color: black;
+
 }
 
 nav {
-    background: magenta;
+	background: #000022;
+  	color: gold;
 }
 
-body {
-    background: black;
+input{
+	color: gold;
+}
+
+.btn, .btn-flat{
+	margin: 1%;
+}
+#login-panel{
+	
 }
 
 #death {
