@@ -1,4 +1,6 @@
-
+function succumbToDeath(){
+   console.log('DIE');
+}
 
 var game = new Phaser.Game(800, 800, Phaser.AUTO, '', { 
    preload: preload, 
@@ -11,10 +13,11 @@ function preload() {
 
    game.load.baseURL = '/';
 
-   game.load.image('player', 'game-files/images/phaser-dude.png');
+   game.load.image('player', 'game-files/images/snitch-avatar.png');
 
-   game.load.tilemap('test', 'game-files/levels/level-1/test2.json', null, Phaser.Tilemap.TILED_JSON);
-   game.load.image('tiles', 'game-files/images/sheet1.png');
+   game.load.tilemap('test', 'game-files/levels/level-2krazykats/eliz.json', null, Phaser.Tilemap.TILED_JSON);
+   game.load.image('tiles', 'game-files/images/scifi.png');
+   game.load.image('tiles1', 'game-files/images/sheet1.png');
 }
 
 var map;
@@ -27,8 +30,9 @@ function create() {
    map = game.add.tilemap('test');
     //  The first parameter is the tileset name, as specified in the Tiled map editor (and in the tilemap json file)
     //  The second parameter maps this name to the Phaser.Cache key 'tiles'
-    map.addTilesetImage('test2', 'tiles');
-    
+    map.addTilesetImage('scifi', 'tiles');
+    map.addTilesetImage('sheet1', 'tiles1');
+
     //  Creates a layer from the World1 layer in the map data.
     //  A Layer is effectively like a Phaser.Sprite, so is added to the display list.
     layer = map.createLayer('Tile Layer 1');
@@ -37,8 +41,14 @@ function create() {
     layer.resizeWorld();
    player = game.add.sprite(100, 200, 'player');
 
-    map.setCollisionBetween(1, 10);
-    map.setTileIndexCallback(13, () => {console.log('DIE')});
+    map.setCollisionBetween(1, 20);
+    map.setCollisionBetween(25, 36);
+    map.setCollisionBetween(39, 56);
+    map.setTileIndexCallback([
+      103, 105, 106, 108, 113, 114, 115, 120, 121, 122,
+      125, 126, 127, 128, 131, 132, 133, 134, 135, 136,
+      139, 140, 141, 142
+   ], succumbToDeath);
 
    game.physics.enable(player);
 
