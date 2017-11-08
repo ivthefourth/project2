@@ -40,5 +40,5 @@ function update() {
 
    game.physics.arcade.collide(state.player, layer);
 
-   defaults.updateInit(game, state, succumbToDeath(state));
+   defaults.updateInit(game, state, succumbToDeath(state), console.log.bind(null, 'YOU WIN'));
 }

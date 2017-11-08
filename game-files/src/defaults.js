@@ -98,7 +98,7 @@ module.exports = {
          139, 140, 141, 142
       ], trapCollisionCallback);
    },
-   updateInit(game, state, trapCollisionCallback){
+   updateInit(game, state, trapCollisionCallback, winCallback){
       var player = state.player;
       var camerafollow = state.camerafollow;
       var camera = game.camera;
@@ -130,6 +130,10 @@ module.exports = {
          if(state.jumpButton.isDown && Math.sign(player.body.velocity.y) != Math.sign(player.body.gravity.y)){
             player.body.velocity.y += Math.sign(player.body.gravity.y) * 25; 
          }
+      }
+
+      if(player.x > game.world.width){
+         winCallback();
       }
 
 
