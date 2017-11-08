@@ -3,3 +3,4 @@ Thumbs.db
 node_modules
 public/game-files
 config/config.json
+config/connection.js
