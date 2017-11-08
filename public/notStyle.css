@@ -1,10 +1,6 @@
-h1{
-	color: #ffffff;
-	text-align: center;
-}
-
-body{
+body {
   background: #000022;
+  background-image: url("images/Starfield.jpg");
   color: gold;
   perspective: 800px;
 }
@@ -21,13 +17,9 @@ body{
 #starwars-text.moving{
   transform:  translateY(-100px) rotateX(20deg) translateY(-2000px);
 }
-h5{
-	text-align: center;
-}
 
-login-panel{
-	border-color: #ffffff;
-	border-width: 2px;	
+h4 {
+	color: #000000;
 }
 
 .btn{
@@ -35,7 +27,6 @@ login-panel{
 	width:100%;
 	background-color: gold;
 	color: black;
-
 }
 
 nav {
@@ -49,9 +40,6 @@ input{
 
 .btn, .btn-flat{
 	margin: 1%;
-}
-#login-panel{
-	
 }
 
 #death {

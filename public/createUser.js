@@ -97,4 +97,11 @@ $(document).ready(function(){
     logIn(loginAccount);
   });//end of click event
   $('body').click(() => $('#starwars-text').addClass('moving'))
+
+  $('#delete').on("click", function(){
+    //event.preventDefault();
+
+    deleteAccount();
+    console.log("account deleted")
+  });
 });//end of document.ready
