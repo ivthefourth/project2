@@ -21,25 +21,17 @@
     <script  type="text/javascript" src="./createUser.js"></script>
 
    <!-- CSS -->
-   <!-- <link rel="stylesheet" href="notStyle.css"> -->
+   <link rel="stylesheet" href="notStyle.css">
 
 </head>
 <body>
 
 
-  <!-- Modal Trigger -->
-  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="getLevel">Get Levels</a> -->
-
-  <!-- Modal Structure for Levels -->
   <div id="select-level-head" >
-      <h3>Select a level to play</h3>
+      <h3 id="selectText">Select a level to play</h3>
       <div id="select-level">
-
+     <!-- This is where the auto-generated levels would go (see jQuery below) -->
       </div>
-      <!-- <button class="waves-effect waves-light btn" id="level1"></button> -->
-<!--     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-    </div> -->
   </div>
 
 
@@ -63,12 +55,18 @@ $(document).ready(function(){
 		  	for(i=0; i<levelArray.length; i++) {
 
 
-		  		console.log(levelArray[i].name);
-		  		var levelBtn = 
-		  		"<button class='waves-effect waves-light btn' a href=/levels/" + levelCount + ">" + levelArray[i].name + "</button>"
+		  		levelName = levelArray[i].name;
 
-		  		// add each level's button to the list
-		  		$("#select-level").append(levelBtn);
+          // display the levels returned and create the links to be able to play each level
+		  		var levelDiv = $("<class='levelCard card small horizontal col s12 m6' >");
+          var levelUrl = $("<a />", {
+            href: '/levels/' + levelCount + "?token=" + localStorage.getItem('jwtoken'),
+            id: 'levelLink',
+            text: levelName});
+
+		  		// 
+          $("#select-level").append(levelDiv);
+		  		$("#select-level").append(levelUrl);
 
 		  		levelCount++;
 		  		};
