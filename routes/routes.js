@@ -90,6 +90,11 @@ router.get('/', function(req, res){
    res.sendFile('home.html', {root: path.join(__dirname, '../public/')});
 });
 
+// redirect the level-select
+router.get('/level-select', function(req, res){
+   res.sendFile('level-select.html', {root: path.join(__dirname, '../public/')});
+});
+
 
 //level routes
 router.get('/levels/:id', function(req, res) {

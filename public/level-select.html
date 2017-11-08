@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <title>BGE</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- jQuery -->
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+   <!-- materialize -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+   <!-- javascript -->
+   <!-- <script src="notScript.js"></script> -->
+
+    <script  type="text/javascript" src="./createUser.js"></script>
+
+   <!-- CSS -->
+   <!-- <link rel="stylesheet" href="notStyle.css"> -->
+
+</head>
+<body>
+
+
+  <!-- Modal Trigger -->
+  <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="getLevel">Get Levels</a> -->
+
+  <!-- Modal Structure for Levels -->
+  <div id="select-level-head" >
+      <h3>Select a level to play</h3>
+      <div id="select-level">
+
+      </div>
+      <!-- <button class="waves-effect waves-light btn" id="level1"></button> -->
+<!--     <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div> -->
+  </div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('#modal-level').modal('open');
+
+  // get the list of available levels for the user
+  	getAvailableLevels(function(levelArray) {
+	  	console.log(levelArray);
+
+	  	if (levelArray.length === 1) {
+
+	  		// how do I redirect them to level 1?
+	  		router.get('/levels/1');
+
+	  	} else {
+		  	var levelCount = 1;  // keeping count of the level starting with 1
+
+		  	for(i=0; i<levelArray.length; i++) {
+
+
+		  		console.log(levelArray[i].name);
+		  		var levelBtn = 
+		  		"<button class='waves-effect waves-light btn' a href=/levels/" + levelCount + ">" + levelArray[i].name + "</button>"
+
+		  		// add each level's button to the list
+		  		$("#select-level").append(levelBtn);
+
+		  		levelCount++;
+		  		};
+		   		
+		  	};
+	  		
+  	});
+
+}); //end document ready
+</script>
+
+</body>
+</html>
