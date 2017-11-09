@@ -22,14 +22,14 @@ body {
 }
 
 #starwars-text.moving{
-  transform:  rotateX(70deg) translateY(-10000px) translateZ(0px);
+  transform: rotateX(70deg) translateY(-10000px) translateZ(0px);
 }
 
 h4 {
 	color: #000000;
 }
 
-.btn{
+.btn {
 	align-items: center;
 	width:100%;
 	background-color: gold;
@@ -64,24 +64,27 @@ input{
 	margin: auto;
 	margin-top: 120px;
   border-radius: 40px;
-  background: red;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+  background-image: url("images/Starfield.jpg");
 }
 
 #gameover {
 	height: auto;
-	padding-top: 60px;
+	padding-top: 40px;
 	background: none;
 }
 
-#gameover  p {
+#gameover p {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	font-size: 160px;
+	font-size: 120px;
 	font-family: 'Black Ops One', cursive;
-	line-height: 120px;
+	line-height: 100px;
 	text-align: center;
 	text-shadow: 5px 5px #000000;
-	color: #ffffff;
+	color: gold;
 }
 
 #victory {
@@ -99,47 +102,35 @@ input{
 	margin: auto;
 	margin-top: 120px;
   border-radius: 40px;
-  background: red;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+  background-image: url("images/Starfield.jpg");
 }
 
 #win {
 	height: auto;
-	padding-top: 60px;
+	padding-top: 40px;
 	background: none;
 }
 
-#win  p {
+#win p {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	font-size: 160px;
+	font-size: 120px;
 	font-family: 'Black Ops One', cursive;
-	line-height: 120px;
+	line-height: 100px;
 	text-align: center;
 	text-shadow: 5px 5px #000000;
-	color: #ffffff;
+	color: gold;
 }
 
 .choices {
 	margin: 0 200px;
-	padding-top: 60px;
+	padding-top: 20px;
 	background: none;
+	align-items: center;
 }
-
-.choices  a {
-/*BUTTON STUFF*/
-}
-
-#choices #selectText button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
 
 #usernameCreate, #passwordCreate{
 	color: #000000;

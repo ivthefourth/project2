@@ -15,8 +15,10 @@
 		</div>
 
 		<div class="choices">
-			<a id="restart">RESTART GAME</button>
-			<a class="menu">MAIN MENU</a>
+			<button id="restart" class="waves-effect waves-light btn">RESTART GAME</button>
+			<button class="menu waves-effect waves-light btn">MAIN MENU</button>
+			<button class="logout waves-effect waves-light btn">LOG OUT</button>
+			<button class="delete waves-effect waves-light btn">DELETE ACCOUNT</button>
 	</div>
 	</div>
 </div>
@@ -29,8 +31,12 @@
 		</div>
 
 		<div class="choices">
-			<a id="next">NEXT LEVEL</button>
-			<a class="menu">MAIN MENU</a>
+			<br>
+			<br>
+			<button id="next" class="waves-effect waves-light btn">NEXT LEVEL</button>
+			<br>
+			<br>
+			<button class="menu waves-effect waves-light btn">MAIN MENU</button>
 	</div>
 	</div>
 </div>
@@ -39,6 +45,8 @@
 $(document).ready(function(){
 	var tokenid = localStorage.getItem("jwtoken");
 	var tokenURL = "/level-select/?token=" + tokenid;
-	$(".menu").attr("href", tokenURL);
+	$(".menu").click(function(){
+		window.location = tokenURL;
+	});
 });
 </script>
