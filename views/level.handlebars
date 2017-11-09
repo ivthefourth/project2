@@ -14,9 +14,9 @@
 			<p> OVER </p>
 		</div>
 
-		<div id="choices">
-			<button id="restart">RESTART GAME</button>
-			<button id="menu">MAIN MENU</button>
+		<div class="choices">
+			<a id="restart">RESTART GAME</button>
+			<a class="menu">MAIN MENU</a>
 	</div>
 	</div>
 </div>
@@ -28,15 +28,17 @@
 			<p> WIN </p>
 		</div>
 
-		<div id="choices">
-			<button id="next">NEXT LEVEL</button>
-			<button id="menu">MAIN MENU</button>
+		<div class="choices">
+			<a id="next">NEXT LEVEL</button>
+			<a class="menu">MAIN MENU</a>
 	</div>
 	</div>
 </div>
 
 <script>
-	var tokenid = localstorage.getitem("jwtoken");
-	var tokenURL = "/level-select/?token=" + token;
-	$("#menu").attr("href", tokenURL);
+$(document).ready(function(){
+	var tokenid = localStorage.getItem("jwtoken");
+	var tokenURL = "/level-select/?token=" + tokenid;
+	$(".menu").attr("href", tokenURL);
+});
 </script>
