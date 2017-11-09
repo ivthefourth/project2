@@ -11,9 +11,6 @@ function logIn(data){
   });
 }
 
-
-
-
 function logOut(){
   localStorage.removeItem('jwtoken');
   window.location = '/';
@@ -96,12 +93,16 @@ $(document).ready(function(){
     };
     logIn(loginAccount);
   });//end of click event
-  $('body').click(() => $('#starwars-text').addClass('moving'))
+
+  setTimeout(() => $('#starwars-text').addClass('moving'), 500);
+
+  $('#logout').on("click", function(){
+
+    LogOut();
+  });
 
   $('#delete').on("click", function(){
-    //event.preventDefault();
 
     deleteAccount();
-    console.log("account deleted")
   });
 });//end of document.ready
