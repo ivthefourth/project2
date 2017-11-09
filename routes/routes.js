@@ -136,7 +136,10 @@ router.get('/available-levels', function(req, res){
 			include: [models.Levels]
 
 		})
-		.then(user => res.json(user.Levels))
+		.then(user => {
+			user.Levels.unshift({name: 'level-1'})
+			res.json(user.Levels)
+		})
 		.catch(err => res.sendStatus(500));
 	}
 	else{
