@@ -12,7 +12,7 @@ window.game = createGame({
 function preload() {
   defaults.preloadInit(game);
   defaults.loadSprites(game);
-
+  defaults.loadAudio(game);
   //change to match your map
   game.load.tilemap('level1', 'game-files/levels/level-2krazykats/firstlevel.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', 'game-files/images/scifi.png');  
@@ -38,8 +38,9 @@ function create() {
   layer.resizeWorld();
    ////////////
 
-   window.state = defaults.createInit(game);
-   defaults.createCollisions(map, succumbToDeath(state));
+  window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
+  defaults.createCollisions(map, succumbToDeath(state));
+  defaults.playMusic(game, state);
 
 }
 
@@ -49,7 +50,4 @@ function update() {
 
    defaults.updateInit(game, state, succumbToDeath(state), youwin(state));
 }
-
-
-defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
 
