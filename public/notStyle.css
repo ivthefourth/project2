@@ -84,6 +84,41 @@ input{
 	color: #ffffff;
 }
 
+#victory {
+	width: 1280px;
+	height: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+#victoryMenu {
+	width: 750px;
+	height: 480px;
+	margin: auto;
+	margin-top: 120px;
+  border-radius: 40px;
+  background: red;
+}
+
+#win {
+	height: auto;
+	padding-top: 60px;
+	background: none;
+}
+
+#win  p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 160px;
+	font-family: 'Black Ops One', cursive;
+	line-height: 120px;
+	text-align: center;
+	text-shadow: 5px 5px #000000;
+	color: #ffffff;
+}
+
 #choices {
 	margin: 0 200px;
 	padding-top: 60px;

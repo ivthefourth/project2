@@ -1,6 +1,7 @@
 const createGame = require('../../src/create-game');
 const defaults = require('../../src/defaults');
 const succumbToDeath = require('../../src/succumb-to-death');
+const youwin = require('../../src/you-win');
 
 window.game = createGame({ 
    preload: preload, 
@@ -42,5 +43,5 @@ function update() {
 
    game.physics.arcade.collide(state.player, layer);
 
-   defaults.updateInit(game, state, succumbToDeath(state));
+   defaults.updateInit(game, state, succumbToDeath(state), youwin(state));
 }
