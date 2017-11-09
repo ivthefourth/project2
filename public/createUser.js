@@ -13,7 +13,7 @@ function logIn(data){
     }
   });
 }
-git
+
 function logOut(){
   localStorage.removeItem('jwtoken');
   window.location = '/';
