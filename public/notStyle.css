@@ -2,21 +2,27 @@ body {
   background: #000022;
   background-image: url("images/Starfield.jpg");
   color: gold;
-  perspective: 800px;
+  perspective: 300px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 #starwars-text{
-	font-size: 50px;
-  width: 600px;
-  margin: 0 auto;
+  transform-origin: 50% 0%;
+  width: 100vw;
+  left: 0vw;
+  position: absolute;
+  top: 100vh;
   transform-style: preserve-3d;
-  transform:  translateY(-500px) rotateX(20deg) translateY(900px) ;
-  transition: transform 6s linear;
-  
+  transform: rotateX(70deg) translateY(0) translateZ(0px);
+  transition: transform 300s linear;
+  font-size: 3vw;
+  font-family: verdana;
 }
 
 #starwars-text.moving{
-  transform:  translateY(-100px) rotateX(20deg) translateY(10px);
+  transform:  rotateX(70deg) translateY(-10000px) translateZ(0px);
 }
 
 h4 {
