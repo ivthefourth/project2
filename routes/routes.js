@@ -7,8 +7,6 @@ const jwt = require('jsonwebtoken');
 const secret = 'this game is not a parody';
 
 
-// Define relationships in sequelize
-
 
 //Authentication
 router.post('/login', function(req, res) {
@@ -92,6 +90,11 @@ router.get('/', function(req, res){
    res.sendFile('home.html', {root: path.join(__dirname, '../public/')});
 });
 
+// redirect the level-select
+router.get('/level-select', function(req, res){
+   res.sendFile('level-select.html', {root: path.join(__dirname, '../public/')});
+});
+
 
 //level routes
 router.get('/levels/:id', function(req, res) {
@@ -166,7 +169,6 @@ router.delete('/delete', function(req, res) {
 			}
 		})
 		.then(function(dbUser) {
-			//console.log(`${dbUser.username} deleted from database`);
 			res.sendStatus(200);
 		})
 		.catch(err => res.sendStatus(500));

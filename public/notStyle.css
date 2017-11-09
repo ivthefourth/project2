@@ -6,6 +6,7 @@ body {
 }
 
 #starwars-text{
+	font-size: 50px;
   width: 600px;
   margin: 0 auto;
   transform-style: preserve-3d;
@@ -15,7 +16,7 @@ body {
 }
 
 #starwars-text.moving{
-  transform:  translateY(-100px) rotateX(20deg) translateY(-2000px);
+  transform:  translateY(-100px) rotateX(20deg) translateY(10px);
 }
 
 h4 {
@@ -66,7 +67,7 @@ input{
 	background: none;
 }
 
-#gameover p {
+#gameover  p {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	font-size: 160px;
@@ -83,7 +84,7 @@ input{
 	background: none;
 }
 
-#choices button {
+#choices #selectText button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -92,4 +93,11 @@ input{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+#levelLink {
+	padding-right: 5%;
+	padding-left: 5%;
+	font-size: 20px;
+	color: gold;
 }
