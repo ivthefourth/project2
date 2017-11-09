@@ -17,7 +17,6 @@
     </div>
   </div>
           
-
 <div id="death" style="display:none">
 	<div id="deathMenu">
 		<div id="gameover">
@@ -27,7 +26,7 @@
 
 		<div id="choices">
 			<button id="restart">RESTART GAME</button>
-			<button id="menu" href="/">MAIN MENU</button>
+			<button id="menu">MAIN MENU</button>
 	</div>
 	</div>
 </div>
@@ -35,13 +34,19 @@
 <div id="victory" style="display:none">
 	<div id="victoryMenu">
 		<div id="win">
-			<p> GAME </p>
-			<p> OVER </p>
+			<p> YOU </p>
+			<p> WIN </p>
 		</div>
 
 		<div id="choices">
-			<button id="restart">RESTART GAME</button>
-			<button id="menu" href="/">MAIN MENU</button>
+			<button id="next">NEXT LEVEL</button>
+			<button id="menu">MAIN MENU</button>
 	</div>
 	</div>
 </div>
+
+<script>
+	var tokenid = localstorage.getitem("jwtoken");
+	var tokenURL = "/level-select/?token=" + token;
+	$("#menu").attr("href", tokenURL);
+</script>

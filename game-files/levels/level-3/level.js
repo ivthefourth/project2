@@ -1,6 +1,7 @@
 const createGame = require('../../src/create-game');
 const defaults = require('../../src/defaults');
 const succumbToDeath = require('../../src/succumb-to-death');
+const youwin = require('../../src/you-win');
 
 window.game = createGame({ 
    preload: preload, 
