@@ -18,7 +18,8 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 app.use(routes);
 
-db.sequelize.sync({force: true}) 
+// db.sequelize.sync({force: true}) 
+	db.sequelize.sync()
 	.then(function() {
 		app.listen(PORT, () => {
    		console.log('serving yo');

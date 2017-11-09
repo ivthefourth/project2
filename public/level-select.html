@@ -45,12 +45,11 @@ $(document).ready(function(){
         var levelCount = 1;  // keeping count of the level starting with 1
 
 
-	  	if (levelArray.length === 1) {
+	  	// if (levelArray.length === 1) {
 
-	  		// how do I redirect them to level 1?
-	  		window.location = `/levels/${levelCount}?token=${localStorage.getItem('jwtoken')}`;
+	  	// 	window.location = `/levels/${levelCount}?token=${localStorage.getItem('jwtoken')}`;
 
-	  	} else {
+	  	// } else {
 
 		  	for(i=0; i<levelArray.length; i++) {
 
@@ -71,7 +70,7 @@ $(document).ready(function(){
 		  		levelCount++;
 		  		};
 		   		
-		  	};
+		  	// };
 	  		
   	});
 
