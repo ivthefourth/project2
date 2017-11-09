@@ -96,7 +96,7 @@ $(document).ready(function(){
     };
     logIn(loginAccount);
   });//end of click event
-  $('body').click(() => $('#starwars-text').addClass('moving'))
+  setTimeout(() => $('#starwars-text').addClass('moving'), 500);
 
   $('#delete').on("click", function(){
     //event.preventDefault();
