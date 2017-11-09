@@ -33,12 +33,12 @@ function create() {
 
    window.state = defaults.createInit(game);
    defaults.createCollisions(map, succumbToDeath(state));
-
+   defaults.playMusic(game, state);
 }
 
 function update() {
 
    game.physics.arcade.collide(state.player, layer);
 
-   defaults.updateInit(game, state, succumbToDeath(state), console.log.bind(null, 'YOU WIN'));
+   defaults.updateInit(game, state, succumbToDeath(state), youwin(state));
 }
