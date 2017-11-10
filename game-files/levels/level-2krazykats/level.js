@@ -10,12 +10,10 @@ window.game = createGame({
 
 function preload() {
   defaults.preloadInit(game);
-  // defaults.loadSprites(game);
-
   game.load.image('player', 'game-files/images/predatormask.png');
   game.load.image('playerDead', 'game-files/images/predatormaskdead.png');
   game.load.image('player', 'game-files/images/lilo.png');
-
+  defaults.loadAudio(game);
 
   //change to match your map
   game.load.tilemap('level1', 'game-files/levels/level-2krazykats/firstlevel.json', null, Phaser.Tilemap.TILED_JSON);
@@ -43,6 +41,7 @@ function create() {
 
    window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
    defaults.createCollisions(map, succumbToDeath(state));
+  defaults.playMusic(game, state);
 
 
 }
@@ -53,6 +52,4 @@ function update() {
 
    defaults.updateInit(game, state, succumbToDeath(state));
 }
-
-
 

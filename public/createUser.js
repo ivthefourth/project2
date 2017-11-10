@@ -7,6 +7,9 @@ function logIn(data){
     if (response.token) {
       localStorage.setItem('jwtoken', response.token);
       window.location = `/level-select?token=${response.token}`;
+      Materialize.toast('Login Successful', 5000);
+    } else {
+      Materialize.toast('Login Not Successful', 5000);
     }
   });
 }
@@ -48,6 +51,7 @@ function createAccount(data, callback){
     data: data
   })
   .done(callback);
+
 }
 
 function unlockLevel(levelName, callback){
@@ -80,7 +84,7 @@ $(document).ready(function(){
     //console.log('Input Data: ' + newAccount);
 
     $.post("/account", newAccount, function(result){
-      console.log("post result: " + result);
+      Materialize.toast('Account Creation: '+ result, 5000);
     });
   });
 
