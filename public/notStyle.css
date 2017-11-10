@@ -19,6 +19,7 @@ body {
   transition: transform 300s linear;
   font-size: 3vw;
   font-family: verdana;
+  text-align: center;
 }
 
 #starwars-text.moving{
