@@ -38,19 +38,11 @@ function create() {
   layer = map.createLayer('Tile Layer 1');
   layer.resizeWorld();
    ////////////
-<<<<<<< HEAD
 
 
   window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
   defaults.createCollisions(map, succumbToDeath(state));
-  // defaults.playMusic(game, state);
-=======
-
-   window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
-   defaults.createCollisions(map, succumbToDeath(state));
   defaults.playMusic(game, state);
-
->>>>>>> master
 
 }
 
@@ -58,13 +50,10 @@ function update() {
 
    game.physics.arcade.collide(state.player, layer);
 
-<<<<<<< HEAD
-   defaults.updateInit(game, state, succumbToDeath(state));
-=======
+
    defaults.updateInit(game, state, succumbToDeath(state), function(){
      unlockLevel('Level 2');
      youwin(state, 2)();
    });
->>>>>>> master
 }
 
