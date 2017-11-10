@@ -43,5 +43,8 @@ function update() {
 
    game.physics.arcade.collide(state.player, layer);
 
-   defaults.updateInit(game, state, succumbToDeath(state), youwin(state));
+   defaults.updateInit(game, state, succumbToDeath(state), function(){
+     unlockLevel('Level 5');
+     youwin(state, 5)();
+   });
 }

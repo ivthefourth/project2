@@ -9,6 +9,7 @@ module.exports = function(state){
         state.player.body.velocity.x = 0;
         state.camerafollow.body.velocity.x = 0;
         state.music.stop();
+        addDeath();
         $("#death").css("display", "block");
       }
   }

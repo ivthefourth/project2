@@ -17,8 +17,8 @@
 		<div class="choices">
 			<button id="restart" class="waves-effect waves-light btn">RESTART GAME</button>
 			<button class="menu waves-effect waves-light btn">MAIN MENU</button>
-			<button class="logout waves-effect waves-light btn">LOG OUT</button>
-			<button class="delete waves-effect waves-light btn">DELETE ACCOUNT</button>
+			<button id="logout" class="logout waves-effect waves-light btn">LOG OUT</button>
+			<button id="delete-acc" class="delete waves-effect waves-light btn">DELETE ACCOUNT</button>
 	</div>
 	</div>
 </div>
@@ -48,5 +48,7 @@ $(document).ready(function(){
 	$(".menu").click(function(){
 		window.location = tokenURL;
 	});
+	$('#logout').click(logOut);
+	$('#delete-acc').click(deleteAccount);
 });
 </script>
