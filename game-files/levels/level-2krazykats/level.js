@@ -41,8 +41,14 @@ function create() {
   layer.resizeWorld();
    ////////////
 
+<<<<<<< HEAD
    window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
    defaults.createCollisions(map, succumbToDeath(state));
+=======
+  window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
+  defaults.createCollisions(map, succumbToDeath(state));
+  defaults.playMusic(game, state);
+>>>>>>> master
 
 
 }
@@ -54,5 +60,8 @@ function update() {
    defaults.updateInit(game, state, succumbToDeath(state));
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master

@@ -14,9 +14,11 @@
 			<p> OVER </p>
 		</div>
 
-		<div id="choices">
-			<button id="restart">RESTART GAME</button>
-			<button id="menu">MAIN MENU</button>
+		<div class="choices">
+			<button id="restart" class="waves-effect waves-light btn">RESTART GAME</button>
+			<button class="menu waves-effect waves-light btn">MAIN MENU</button>
+			<button class="logout waves-effect waves-light btn">LOG OUT</button>
+			<button class="delete waves-effect waves-light btn">DELETE ACCOUNT</button>
 	</div>
 	</div>
 </div>
@@ -28,15 +30,23 @@
 			<p> WIN </p>
 		</div>
 
-		<div id="choices">
-			<button id="next">NEXT LEVEL</button>
-			<button id="menu">MAIN MENU</button>
+		<div class="choices">
+			<br>
+			<br>
+			<button id="next" class="waves-effect waves-light btn">NEXT LEVEL</button>
+			<br>
+			<br>
+			<button class="menu waves-effect waves-light btn">MAIN MENU</button>
 	</div>
 	</div>
 </div>
 
 <script>
-	var tokenid = localstorage.getitem("jwtoken");
-	var tokenURL = "/level-select/?token=" + token;
-	$("#menu").attr("href", tokenURL);
+$(document).ready(function(){
+	var tokenid = localStorage.getItem("jwtoken");
+	var tokenURL = "/level-select/?token=" + tokenid;
+	$(".menu").click(function(){
+		window.location = tokenURL;
+	});
+});
 </script>
