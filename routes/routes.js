@@ -100,7 +100,26 @@ router.get('/level-select', function(req, res){
 router.get('/levels/:id', function(req, res) {
 	if(req.auth){
 		//check if user has unlocked level before sending res
-   	res.render('level', {levelId: req.params.id});
+		if(req.params.id == 1){
+   		res.render('level', {levelId: req.params.id});
+		}
+		else{
+			models.Levels.findOne({
+				where: {
+					UserId: req.auth.user,
+					name: `Level ${req.params.id}`
+				}
+			})
+			.then(level => {
+				if(level){
+					res.render('level', {levelId: req.params.id});
+				}
+				else{
+					res.redirect('/');
+				}
+			})
+			.catch(err => res.sendStatus(500));
+		}
 	}
 	else{
 		res.redirect('/');
@@ -133,11 +152,14 @@ router.get('/available-levels', function(req, res){
 			where: {
 				id: req.auth.user
 			},
+			order: [
+				['id', 'ASC']
+			],
 			include: [models.Levels]
 
 		})
 		.then(user => {
-			user.Levels.unshift({name: 'level-1'})
+			user.Levels.unshift({name: 'Level 1'})
 			res.json(user.Levels)
 		})
 		.catch(err => res.sendStatus(500));
@@ -174,7 +196,7 @@ router.delete('/delete', function(req, res) {
 		.then(function(dbUser) {
 			res.sendStatus(200);
 		})
-		.catch(err => res.sendStatus(500));
+		.catch(err => {console.log(err); res.sendStatus(500)});
 	}
 	else{
 		res.json({error: 'not authenticated'});

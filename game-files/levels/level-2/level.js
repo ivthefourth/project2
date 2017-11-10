@@ -14,7 +14,7 @@ function preload() {
   defaults.loadSprites(game);
   defaults.loadAudio(game);
   //change to match your map
-  game.load.tilemap('level1', 'game-files/levels/level-tutorial/test_level.json', null, Phaser.Tilemap.TILED_JSON);
+  game.load.tilemap('level1', 'game-files/levels/level-2/test_level.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', 'game-files/images/scifi.png');
   /////////////
 
@@ -41,5 +41,8 @@ function update() {
 
    game.physics.arcade.collide(state.player, layer);
 
-   defaults.updateInit(game, state, succumbToDeath(state), youwin(state));
+   defaults.updateInit(game, state, succumbToDeath(state), function(){
+     unlockLevel('Level 3');
+     youwin(state, 3)();
+   });
 }

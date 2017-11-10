@@ -15,7 +15,7 @@ function preload() {
   defaults.loadAudio(game);
 
   //change to match your map
-  game.load.tilemap('level1', 'game-files/levels/level-1/test_level.json', null, Phaser.Tilemap.TILED_JSON);
+  game.load.tilemap('level1', 'game-files/levels/level-6/test_level.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', 'game-files/images/scifi.png');
   /////////////
 

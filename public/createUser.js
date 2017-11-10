@@ -73,7 +73,7 @@ function getAvailableLevels(callback){
 $(document).ready(function(){
 
   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-  $('.modal').modal();
+  if ($().modal) $('.modal').modal();
   $('.btn-flat').on('click', function(){
     event.preventDefault();
 
@@ -100,13 +100,4 @@ $(document).ready(function(){
 
   setTimeout(() => $('#starwars-text').addClass('moving'), 500);
 
-  $('#logout').on("click", function(){
-
-    LogOut();
-  });
-
-  $('#delete').on("click", function(){
-
-    deleteAccount();
-  });
 });//end of document.ready

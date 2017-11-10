@@ -1,6 +1,7 @@
 const createGame = require('../../src/create-game');
 const defaults = require('../../src/defaults');
 const succumbToDeath = require('../../src/succumb-to-death');
+const youwin = require('../../src/you-win');
 
 window.game = createGame({ 
    preload: preload, 
@@ -16,7 +17,7 @@ function preload() {
   defaults.loadAudio(game);
 
   //change to match your map
-  game.load.tilemap('level1', 'game-files/levels/level-2krazykats/firstlevel.json', null, Phaser.Tilemap.TILED_JSON);
+  game.load.tilemap('level1', 'game-files/levels/level-1/firstlevel.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', 'game-files/images/scifi.png');  
   game.load.image('tiles2', 'game-files/images/natural/natural-elements-small.png');
   game.load.image('tiles3', 'game-files/images/natural/natural-tileSmall.png');
@@ -50,6 +51,9 @@ function update() {
 
    game.physics.arcade.collide(state.player, layer);
 
-   defaults.updateInit(game, state, succumbToDeath(state));
+   defaults.updateInit(game, state, succumbToDeath(state), function(){
+     unlockLevel('Level 2');
+     youwin(state, 2)();
+   });
 }
 
