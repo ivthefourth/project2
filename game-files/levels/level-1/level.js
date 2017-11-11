@@ -13,7 +13,7 @@ function preload() {
   game.load.image('player', 'game-files/images/predatormask.png');
   game.load.image('playerDead', 'game-files/images/predatormaskdead.png');
   game.load.image('playerFriend', 'game-files/images/lilo.png');
-  // defaults.loadAudio(game);
+  defaults.loadAudio(game);
 
   //change to match your map
   game.load.tilemap('level1', 'game-files/levels/level-1/firstlevel.json', null, Phaser.Tilemap.TILED_JSON);
@@ -44,6 +44,9 @@ function create() {
   defaults.createCollisions(map, succumbToDeath(state));
   defaults.playMusic(game, state);
 
+  playerFriend = game.add.sprite(3380, 808, 'playerFriend');
+  playerFriend.visible = true;  
+  playerFriend.anchor.setTo(5.5,5.5);
 }
 
 function update() {
