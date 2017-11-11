@@ -138,8 +138,19 @@ input{
 }
 
 #levelLink {
+	margin: 5%;
 	padding-right: 5%;
 	padding-left: 5%;
 	font-size: 20px;
 	color: gold;
+}
+
+#selectText, #select-level {
+	padding-top: 5%;
+	padding-left: 5%;
+	padding-bottom: 3%;
+}
+
+#selectText {
+	margin-right: 5%;
 }

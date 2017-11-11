@@ -26,14 +26,17 @@
 </head>
 <body>
 
-
-  <div id="select-level-head" >
+<div>
       <h3 id="selectText">Select a level to play</h3>
-      <div id="select-level">
-     <!-- This is where the auto-generated levels would go (see jQuery below) -->
+
+    <div class="row">
+      <div class="col s12 m6">     
+        <div id="select-level">
+       <!-- This is where the auto-generated levels would go (see jQuery below) -->
+        </div>
       </div>
   </div>
-
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -53,19 +56,18 @@ $(document).ready(function(){
 
 		  	for(i=0; i<levelArray.length; i++) {
 
-
 		  		levelName = levelArray[i].name;
 
           // display the levels returned and create the links to be able to play each level
-		  		var levelDiv = $("<class='levelCard card small horizontal col s12 m6' >");
+		  		var levelDiv = $("<class='card-title small horizontal col s12 m6' id='levelDiv" + levelCount + "'>");
           var levelUrl = $("<a />", {
             href: '/levels/' + levelCount + "?token=" + localStorage.getItem('jwtoken'),
             id: 'levelLink',
             text: levelName});
 
-		  		// 
+		  		// Create the levels
           $("#select-level").append(levelDiv);
-		  		$("#select-level").append(levelUrl);
+		  		$(`#levelDiv${levelCount}`).append(levelUrl);
 
 		  		levelCount++;
 		  		};
