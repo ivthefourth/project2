@@ -1,7 +1,6 @@
 const createGame = require('../../src/create-game');
 const defaults = require('../../src/defaults');
 const succumbToDeath = require('../../src/succumb-to-death');
-const youwin = require('../../src/you-win');
 
 window.game = createGame({ 
    preload: preload, 
@@ -13,8 +12,8 @@ function preload() {
   defaults.preloadInit(game);
   game.load.image('player', 'game-files/images/predatormask.png');
   game.load.image('playerDead', 'game-files/images/predatormaskdead.png');
-  game.load.image('player', 'game-files/images/lilo.png');
-  defaults.loadAudio(game);
+  game.load.image('playerFriend', 'game-files/images/lilo.png');
+  // defaults.loadAudio(game);
 
   //change to match your map
   game.load.tilemap('level1', 'game-files/levels/level-1/firstlevel.json', null, Phaser.Tilemap.TILED_JSON);
@@ -40,16 +39,17 @@ function create() {
   layer.resizeWorld();
    ////////////
 
-   window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
-   defaults.createCollisions(map, succumbToDeath(state));
-  defaults.playMusic(game, state);
 
+  window.state = defaults.createInit(game, {playerStartingX: 100, playerStartingY: 416});
+  defaults.createCollisions(map, succumbToDeath(state));
+  defaults.playMusic(game, state);
 
 }
 
 function update() {
 
    game.physics.arcade.collide(state.player, layer);
+
 
    defaults.updateInit(game, state, succumbToDeath(state), function(){
      unlockLevel('Level 2');
