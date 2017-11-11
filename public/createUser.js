@@ -84,8 +84,15 @@ $(document).ready(function(){
     //console.log('Input Data: ' + newAccount);
 
     $.post("/account", newAccount, function(result){
-      Materialize.toast('Account Creation: '+ result, 5000);
+      if(result==="OK"){
+        Materialize.toast('Account Creation: OK', 5000);
+      } else {
+        Materialize.toast('Unable to create account', 5000);
+      }
     });
+
+    $('#usernameCreate').val('');
+    $('#passwordCreate').val('');
   });
 
   $('#login').on("click", function(){
